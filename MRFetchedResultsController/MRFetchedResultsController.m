@@ -146,8 +146,11 @@ static NSCache *__cache = nil;
 
 + (void)deleteCacheWithName:(NSString *const)name
 {
-    NSParameterAssert(name);
-    [__cache removeObjectForKey:name];
+    if (name) {
+        [__cache removeObjectForKey:name];
+    } else {
+        [__cache removeAllObjects];
+    }
 }
 
 - (id)initWithFetchRequest:(NSFetchRequest *)fetchRequest
@@ -344,7 +347,6 @@ static NSCache *__cache = nil;
 
 - (NSArray *)fetchedObjects
 {
-    NSParameterAssert(self.didPerformFetch);
     NSUInteger const numberOfObjects = self.numberOfObjects;
     if (_fetchedObjects == nil && numberOfObjects > 0) {
         NSMutableArray *const objects = [NSMutableArray arrayWithCapacity:numberOfObjects];
