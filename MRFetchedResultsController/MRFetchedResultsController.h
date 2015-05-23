@@ -31,41 +31,109 @@
  */
 @interface MRFetchedResultsController : NSObject
 
+/**
+ Initializes an instance of `MRFetchedResultsController`.
+ 
+ @param fetchRequest The fetch request used to get the objects.
+ @param context The context that will hold the fetched objects.
+ @param sectionNameKeyPath Keypath on resulting objects that returns their section name.
+ @param cacheName Identifier of the in-memory cache.
+ @return The receiver initialized with the given parameters.
+ */
 - (id)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext: (NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name;
 
+/**
+ Executes the fetch request to get objects.
+ 
+ @param errorPtr If the fetch is not successful, upon return contains an error object describing the problem.
+ @return Returns `YES` if successful or `NO` otherwise.
+ */
 - (BOOL)performFetch:(NSError **)errorPtr;
 
+/**
+ `NSFetchRequest` instance used to do the fetching.
+ */
 @property (nonatomic, strong, readonly) NSFetchRequest *fetchRequest;
 
+/**
+ Managed Object Context used to fetch objects.
+ 
+ The controller registers to listen to change notifications on this context (see `applyFetchedObjectsChanges`) and properly update its result set and section information (see `changesAppliedOnSave`).
+ */
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 
+/**
+ The keyPath on the fetched objects used to determine the section they belong to.
+ */
 @property (nonatomic, strong, readonly) NSString *sectionNameKeyPath;
 
+/**
+ Name of the section information in-memory cache.
+ */
 @property (nonatomic, strong, readonly) NSString *cacheName;
 
+/**
+ Delegate that is notified when the result set changes.
+ */
 @property (nonatomic, weak) id<MRFetchedResultsControllerDelegate> delegate;
 
+/**
+ Deletes the cached section information with the given name. If name is `nil`, then the whole cache is deleted.
+ */
 + (void)deleteCacheWithName:(NSString *)name;
 
+/**
+ Returns the results of the fetch.
+ */
 @property (nonatomic, strong, readonly) NSArray *fetchedObjects;
 
+/**
+ Returns the fetched object at the given index path.
+ 
+ @param fetchedIndexPath An index path in the fetch results.
+ @return The object at the given index path.
+ */
 - (id)objectAtIndexPath:(NSIndexPath *)fetchedIndexPath;
 
+/**
+ Returns the index path of a given object.
+ 
+ @param object An object in the receiver’s fetch results.
+ @return The index path of an object in the receiver’s fetch results, or `nil` if object could not be found.
+ */
 - (NSIndexPath *)indexPathForObject:(id)object;
 
+/**
+ Returns the corresponding section index title for a given section name.
+ 
+ @param sectionName The name of a section.
+ @return The section index entry corresponding to the section with the given name.
+ */
 - (NSString *)sectionIndexTitleForSectionName:(NSString *)sectionName;
 
+/**
+ Returns the array of section index titles.
+ */
 @property (nonatomic, strong, readonly) NSArray *sectionIndexTitles;
 
+/**
+ Returns an array of objects that implement the `MRFetchedResultsSectionInfo` protocol.
+ */
 @property (nonatomic, strong, readonly) NSArray *sections;
 
+/**
+ Returns the section number for the given section index title and index.
+ 
+ @param title The index title of a section.
+ @param sectionIndex The index of a section.
+ @return The section number for the given section index title and index.
+ */
 - (NSInteger)sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index;
 
 /*
  Returns the section number for a given section index title.
  
  @param The title of a section in the section index.
- 
  @return The section number for the given section index title.
  */
 - (NSInteger)sectionForSectionIndexTitle:(NSString *)title;
@@ -93,12 +161,16 @@
 // See `NSFetchedResultsSectionInfo`.
 @protocol MRFetchedResultsSectionInfo
 
+// Name of the section.
 @property (nonatomic, readonly) NSString *name;
 
+// Section index title.
 @property (nonatomic, readonly) NSString *indexTitle;
 
+// Number of objects in section.
 @property (nonatomic, readonly) NSUInteger numberOfObjects;
 
+// Array of objects in the section.
 @property (nonatomic, readonly) NSArray *objects;
 
 @end
@@ -114,18 +186,23 @@ typedef NS_ENUM(NSUInteger, MRFetchedResultsChangeType) {
     MRFetchedResultsChangeUpdate = 4
 };
 
+// Notifies the delegate that a fetched object has been changed.
 @optional
 - (void)controller:(MRFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(MRFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath;
 
+// Notifies the delegate of added or removed sections.
 @optional
 - (void)controller:(MRFetchedResultsController *)controller didChangeSection:(id <MRFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(MRFetchedResultsChangeType)type;
 
+//  Notifies the delegate that section and object changes are about to be processed.
 @optional
 - (void)controllerWillChangeContent:(MRFetchedResultsController *)controller;
 
+// Notifies the delegate that all section and object changes have been sent.
 @optional
 - (void)controllerDidChangeContent:(MRFetchedResultsController *)controller;
 
+// Asks the delegate to return the corresponding section index title for a given section name.
 @optional
 - (NSString *)controller:(MRFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName;
 

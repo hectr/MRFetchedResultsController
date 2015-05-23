@@ -23,6 +23,9 @@
 #import "MRFetchedResultsController.h"
 
 
+/**
+ Extension that exposes non-public methods of `MRFetchedResultsController` instances.
+ */
 @interface MRFetchedResultsController (Internal)
 
 @property (nonatomic, strong) NSCache *cache;
