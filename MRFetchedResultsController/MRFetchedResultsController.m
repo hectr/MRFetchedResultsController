@@ -27,6 +27,21 @@
 static NSCache *__cache = nil;
 
 
+#pragma mark - MRCollectionViewProtocol -
+
+
+@protocol MRCollectionViewProtocol <NSObject>
+- (void)insertSections:(NSIndexSet *)sections;
+- (void)deleteSections:(NSIndexSet *)sections;
+- (void)reloadSections:(NSIndexSet *)sections;
+- (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection;
+- (void)insertItemsAtIndexPaths:(NSArray *)indexPaths;
+- (void)deleteItemsAtIndexPaths:(NSArray *)indexPaths;
+- (void)reloadItemsAtIndexPaths:(NSArray *)indexPaths;
+- (void)moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
+@end
+
+
 #pragma mark - MRFetchedResultsSectionInfo -
 
 
@@ -109,6 +124,80 @@ static NSCache *__cache = nil;
 @end
 
 
+#pragma mark - MRFetchedResultsSectionInfo -
+
+
+@interface MRFetchedResultsChangeInfo : NSObject <MRFetchedResultsSectionChangeInfo, MRFetchedResultsObjectChangeInfo>
+@property (nonatomic, assign) BOOL isSectionChange;
+@property (nonatomic, assign) MRFetchedResultsChangeType changeType;
+@property (nonatomic, assign) NSUInteger sectionIndex;
+@property (nonatomic, assign) NSUInteger sectionNewIndex;
+@property (nonatomic, strong) NSIndexPath *objectIndexPath;
+@property (nonatomic, strong) NSIndexPath *objectNewIndexPath;
+
+@end
+
+
+@implementation MRFetchedResultsChangeInfo
+
+- (void)performUpdateInCollectionView:(id const)collectionView
+{
+    switch (self.changeType) {
+        case MRFetchedResultsChangeInsert: {
+            if (self.isSectionChange) {
+                NSIndexSet * const indexSet = [NSIndexSet indexSetWithIndex:self.sectionNewIndex];
+                NSParameterAssert([collectionView respondsToSelector:@selector(insertSections:)]);
+                [collectionView performSelector:@selector(insertSections:)
+                                     withObject:indexSet];
+            } else {
+                NSParameterAssert([collectionView respondsToSelector:@selector(insertItemsAtIndexPaths:)]);
+                [collectionView performSelector:@selector(insertItemsAtIndexPaths:)
+                                     withObject:@[ self.objectNewIndexPath ]];
+            }
+        } break;
+        case MRFetchedResultsChangeDelete: {
+            if (self.isSectionChange) {
+                NSIndexSet * const indexSet = [NSIndexSet indexSetWithIndex:self.sectionIndex];
+                NSParameterAssert([collectionView respondsToSelector:@selector(deleteSections:)]);
+                [collectionView performSelector:@selector(deleteSections:)
+                                     withObject:indexSet];
+            } else {
+                NSParameterAssert([collectionView respondsToSelector:@selector(deleteItemsAtIndexPaths:)]);
+                [collectionView performSelector:@selector(deleteItemsAtIndexPaths:)
+                                     withObject:@[ self.objectIndexPath ]];
+            }
+        } break;
+        case MRFetchedResultsChangeMove: {
+            if (self.isSectionChange) {
+                NSParameterAssert([collectionView respondsToSelector:@selector(moveSection:toSection:)]);
+                [collectionView performSelector:@selector(moveSection:toSection:)
+                                     withObject:@(self.sectionIndex)
+                                     withObject:@(self.sectionNewIndex)];
+            } else {
+                NSParameterAssert([collectionView respondsToSelector:@selector(moveItemAtIndexPath:toIndexPath:)]);
+                [collectionView performSelector:@selector(moveItemAtIndexPath:toIndexPath:)
+                                     withObject:self.objectIndexPath
+                                     withObject:self.objectNewIndexPath];
+            }
+        } break;
+        case MRFetchedResultsChangeUpdate: {
+            if (self.isSectionChange) {
+                NSIndexSet * const indexSet = [NSIndexSet indexSetWithIndex:self.sectionIndex];
+                NSParameterAssert([collectionView respondsToSelector:@selector(reloadSections:)]);
+                [collectionView performSelector:@selector(reloadSections:)
+                                     withObject:indexSet];
+            } else {
+                NSParameterAssert([collectionView respondsToSelector:@selector(reloadItemsAtIndexPaths:)]);
+                [collectionView performSelector:@selector(reloadItemsAtIndexPaths:)
+                                     withObject:@[ self.objectIndexPath ]];
+            }
+        } break;
+    }
+}
+
+@end
+
+
 #pragma mark - MRFetchedResultsController -
 
 
@@ -129,6 +218,7 @@ static NSCache *__cache = nil;
 @property (nonatomic, assign, readwrite) BOOL notifyDidChangeSection;
 @property (nonatomic, assign, readwrite) BOOL notifyWillChangeContent;
 @property (nonatomic, assign, readwrite) BOOL notifyDidChangeContent;
+@property (nonatomic, assign, readwrite) BOOL notifyDidChangeSectionsAndObjects;
 @property (nonatomic, assign, readwrite) BOOL notifySectionIndexTitle;
 @property (nonatomic, strong, readwrite) id<NSObject> observer;
 @property (nonatomic, strong, readwrite) NSMutableSet *insertedObjects;
@@ -239,7 +329,7 @@ static NSCache *__cache = nil;
     NSParameterAssert(fetchedIndexPath);
     NSUInteger const section = [fetchedIndexPath indexAtPosition:0];
     NSUInteger const row = [fetchedIndexPath indexAtPosition:1];
-    MRFetchedResultsSectionInfo *const sectionInfo = self.sections[section];
+    id<MRFetchedResultsSectionInfo> const sectionInfo = self.sections[section];
     NSObject *const object = [sectionInfo.objects objectAtIndex:row];
     return object;
 }
@@ -253,7 +343,7 @@ static NSCache *__cache = nil;
     if (objectIndex != NSNotFound) {
         NSArray *const sections = self.sections;
         __block NSUInteger section = NSNotFound;
-        __block MRFetchedResultsSectionInfo *sectionInfo;
+        __block id<MRFetchedResultsSectionInfo> sectionInfo;
         [sections enumerateObjectsUsingBlock:
          ^(MRFetchedResultsSectionInfo *const obj, NSUInteger const idx, BOOL *const stop) {
              NSRange const range = obj.range;
@@ -287,7 +377,7 @@ static NSCache *__cache = nil;
     } else {
         if (sectionName.length == 0) {
             indexTitle = sectionName;
-        } if (sectionName.length == 1) {
+        } else if (sectionName.length == 1) {
             indexTitle = sectionName.uppercaseString;
         } else {
             indexTitle = [sectionName substringToIndex:1].uppercaseString;
@@ -351,7 +441,7 @@ static NSCache *__cache = nil;
     if (_fetchedObjects == nil && numberOfObjects > 0) {
         NSMutableArray *const objects = [NSMutableArray arrayWithCapacity:numberOfObjects];
         NSArray *const sections = self.sections;
-        for (MRFetchedResultsSectionInfo *const sectionInfo in sections) {
+        for (id<MRFetchedResultsSectionInfo> const sectionInfo in sections) {
             NSArray *const sectionObjects = sectionInfo.objects;
             [objects addObject:sectionObjects];
         }
@@ -395,6 +485,7 @@ static NSCache *__cache = nil;
     self.notifyDidChangeSection = [delegate respondsToSelector:@selector(controller:didChangeSection:atIndex:forChangeType:)];
     self.notifyWillChangeContent = [delegate respondsToSelector:@selector(controllerWillChangeContent:)];
     self.notifyDidChangeContent = [delegate respondsToSelector:@selector(controllerDidChangeContent:)];
+    self.notifyDidChangeSectionsAndObjects = [delegate respondsToSelector:@selector(controller:didChangeSections:andObjects:)];
     self.notifySectionIndexTitle = [delegate respondsToSelector:@selector(controller:sectionIndexTitleForSectionName:)];
 }
 
@@ -426,7 +517,7 @@ static NSCache *__cache = nil;
     BOOL isUsingObjectIDs = (context != self.managedObjectContext);
     if (keyPath == nil) {
         NSRange const range = NSMakeRange(0, objects.count);
-        MRFetchedResultsSectionInfo *sectionInfo;
+        id<MRFetchedResultsSectionInfo> sectionInfo;
         if (isUsingObjectIDs) {
             sectionInfo =
             [[MRFetchedResultsSectionInfo alloc] initWithName:nil
@@ -479,7 +570,7 @@ static NSCache *__cache = nil;
         } else {
             NSString *const sectionIndexTitle = [self sectionIndexTitleForSectionName:currentName];
             NSRange const range = NSMakeRange(currentLocation, currentLength);
-            MRFetchedResultsSectionInfo *sectionInfo;
+            id<MRFetchedResultsSectionInfo> sectionInfo;
             if (isUsingObjectIDs) {
                 sectionInfo =
                 [[MRFetchedResultsSectionInfo alloc] initWithName:currentName
@@ -507,7 +598,7 @@ static NSCache *__cache = nil;
     if (objects.count > 0) {
         NSString *const sectionIndexTitle = [self sectionIndexTitleForSectionName:currentName];
         NSRange const range = NSMakeRange(currentLocation, currentLength);
-        MRFetchedResultsSectionInfo *sectionInfo;
+        id<MRFetchedResultsSectionInfo> sectionInfo;
         if (isUsingObjectIDs) {
             sectionInfo =
             [[MRFetchedResultsSectionInfo alloc] initWithName:currentName
@@ -538,7 +629,7 @@ static NSCache *__cache = nil;
     NSMutableArray *const sectionIndexTitles = [NSMutableArray arrayWithCapacity:count];
     NSMutableArray *const sectionIndexTitlesSections = [NSMutableArray arrayWithCapacity:count];
     NSMutableArray *const names = [NSMutableArray arrayWithCapacity:sections.count];
-    for (MRFetchedResultsSectionInfo *const section in sections) {
+    for (id<MRFetchedResultsSectionInfo> const section in sections) {
         NSString *const name = section.name;
         [names addObject:(name ?: NSNull.null)];
     }
@@ -723,6 +814,77 @@ static NSCache *__cache = nil;
     });
 }
 
+- (id<MRFetchedResultsSectionChangeInfo>)mr_changeInfoWithType:(MRFetchedResultsChangeType const)type
+                                                     atSection:(NSUInteger const)index
+                                                    newSection:(NSUInteger const)newIndex
+{
+    MRFetchedResultsChangeInfo *const changeInfo = [[MRFetchedResultsChangeInfo alloc] init];
+    changeInfo.isSectionChange = YES;
+    changeInfo.changeType = type;
+    switch (type) {
+        case MRFetchedResultsChangeInsert:
+            NSParameterAssert(index == NSNotFound);
+            NSParameterAssert(newIndex != NSNotFound);
+            changeInfo.sectionIndex = NSNotFound;
+            changeInfo.sectionNewIndex = newIndex;
+            break;
+        case MRFetchedResultsChangeDelete:
+            NSParameterAssert(index != NSNotFound);
+            NSParameterAssert(newIndex == NSNotFound);
+            changeInfo.sectionIndex = index;
+            changeInfo.sectionNewIndex = NSNotFound;
+            break;
+        case MRFetchedResultsChangeMove:
+            NSParameterAssert(index != NSNotFound);
+            NSParameterAssert(newIndex != NSNotFound);
+            changeInfo.sectionIndex = index;
+            changeInfo.sectionNewIndex = newIndex;
+            break;
+        case MRFetchedResultsChangeUpdate:
+            NSParameterAssert(index != NSNotFound);
+            NSParameterAssert(newIndex == NSNotFound);
+            changeInfo.sectionIndex = index;
+            changeInfo.sectionNewIndex = NSNotFound;
+            break;
+    }
+    return changeInfo;
+}
+
+- (id<MRFetchedResultsObjectChangeInfo>)mr_changeInfoWithType:(MRFetchedResultsChangeType const)type
+                                            atIndexPath:(NSIndexPath *const)indexPath
+                                           newIndexPath:(NSIndexPath *const)newIndexPath
+{
+    MRFetchedResultsChangeInfo *const changeInfo = [[MRFetchedResultsChangeInfo alloc] init];
+    changeInfo.changeType = type;
+    switch (type) {
+        case MRFetchedResultsChangeInsert:
+            NSParameterAssert(indexPath == nil);
+            NSParameterAssert(newIndexPath);
+            changeInfo.objectIndexPath = nil;
+            changeInfo.objectNewIndexPath = newIndexPath;
+            break;
+        case MRFetchedResultsChangeDelete:
+            NSParameterAssert(indexPath);
+            NSParameterAssert(newIndexPath == nil);
+            changeInfo.objectIndexPath = indexPath;
+            changeInfo.objectNewIndexPath = nil;
+            break;
+        case MRFetchedResultsChangeMove:
+            NSParameterAssert(indexPath);
+            NSParameterAssert(newIndexPath);
+            changeInfo.objectIndexPath = indexPath;
+            changeInfo.objectNewIndexPath = newIndexPath;
+            break;
+        case MRFetchedResultsChangeUpdate:
+            NSParameterAssert(indexPath);
+            NSParameterAssert(newIndexPath == nil);
+            changeInfo.objectIndexPath = indexPath;
+            changeInfo.objectNewIndexPath = nil;
+            break;
+    }
+    return changeInfo;
+}
+
 - (void)mr_notifyChangesInSections:(NSArray *const)oldSections
                         indexPaths:(NSDictionary *const)oldIndexPaths
                            objects:(NSSet *const)oldMatches
@@ -734,15 +896,23 @@ static NSCache *__cache = nil;
     if (self.notifyWillChangeContent) {
         [delegate controllerWillChangeContent:self];
     }
+    NSMutableArray *sectionChanges;
+    NSMutableArray *objectChanges;
+    BOOL const notifyDidChangeSectionsAndObjects = self.notifyDidChangeSectionsAndObjects;
+    if (notifyDidChangeSectionsAndObjects) {
+        sectionChanges = NSMutableArray.array;
+        objectChanges = NSMutableArray.array;
+    }
     // notify section changes
-    if (self.notifyDidChangeSection) {
+    BOOL const notifyDidChangeSection = self.notifyDidChangeSection;
+    if (notifyDidChangeSection || notifyDidChangeSectionsAndObjects) {
         NSArray *const sections = self.sections;
         NSMutableArray *const newSections = sections.mutableCopy;
         [oldSections enumerateObjectsUsingBlock:
-         ^(MRFetchedResultsSectionInfo *const oldSectionInfo, NSUInteger const oldIndex, BOOL *const stop) {
+         ^(id<MRFetchedResultsSectionInfo> const oldSectionInfo, NSUInteger const oldIndex, BOOL *const stop) {
              NSString *const oldName = oldSectionInfo.name;
              BOOL found = NO;
-             for (MRFetchedResultsSectionInfo *const sectionInfo in sections) {
+             for (id<MRFetchedResultsSectionInfo> const sectionInfo in sections) {
                  NSString *const name = sectionInfo.name;
                  if ([name isEqual:oldName] || name == oldName) {
                      [newSections removeObject:sectionInfo];
@@ -750,73 +920,98 @@ static NSCache *__cache = nil;
                      NSUInteger const index = [sections indexOfObject:sectionInfo];
                      NSAssert(NSNotFound != index, @"section not found");
                      if (oldIndex != index) {
-                         [delegate controller:self
-                             didChangeSection:oldSectionInfo
-                                      atIndex:oldIndex
-                                forChangeType:MRFetchedResultsChangeDelete];
-                         [delegate controller:self
-                             didChangeSection:sectionInfo
-                                      atIndex:index
-                                forChangeType:MRFetchedResultsChangeInsert];
+                         [sectionChanges addObject:[self mr_changeInfoWithType:MRFetchedResultsChangeDelete atSection:oldIndex newSection:NSNotFound]];
+                         [sectionChanges addObject:[self mr_changeInfoWithType:MRFetchedResultsChangeInsert atSection:NSNotFound newSection:index]];
+                         if (notifyDidChangeSection) {
+                             [delegate controller:self
+                                 didChangeSection:oldSectionInfo
+                                          atIndex:oldIndex
+                                    forChangeType:MRFetchedResultsChangeDelete];
+                             [delegate controller:self
+                                 didChangeSection:sectionInfo
+                                          atIndex:index
+                                    forChangeType:MRFetchedResultsChangeInsert];
+                         }
                      }
                      break;
                  }
              }
              if (!found) {
-                 [delegate controller:self
-                     didChangeSection:oldSectionInfo
-                              atIndex:oldIndex
-                        forChangeType:MRFetchedResultsChangeDelete];
+                 [sectionChanges addObject:[self mr_changeInfoWithType:MRFetchedResultsChangeDelete atSection:oldIndex newSection:NSNotFound]];
+                 if (notifyDidChangeSection) {
+                     [delegate controller:self
+                         didChangeSection:oldSectionInfo
+                                  atIndex:oldIndex
+                            forChangeType:MRFetchedResultsChangeDelete];
+                 }
              }
          }];
         [newSections enumerateObjectsUsingBlock:
-         ^(MRFetchedResultsSectionInfo *const newSectionInfo, NSUInteger const newIndex, BOOL *const stop) {
+         ^(id<MRFetchedResultsSectionInfo> const newSectionInfo, NSUInteger const newIndex, BOOL *const stop) {
              NSUInteger const index = [sections indexOfObject:newSectionInfo];
              NSAssert(NSNotFound != index, @"section not found");
-             [delegate controller:self
-                 didChangeSection:newSectionInfo
-                          atIndex:index
-                    forChangeType:MRFetchedResultsChangeInsert];
+             [sectionChanges addObject:[self mr_changeInfoWithType:MRFetchedResultsChangeInsert atSection:NSNotFound newSection:index]];
+             if (notifyDidChangeSection) {
+                 [delegate controller:self
+                     didChangeSection:newSectionInfo
+                              atIndex:index
+                        forChangeType:MRFetchedResultsChangeInsert];
+             }
          }];
     }
     // notify object changes
-    if (self.notifyDidChangeObject) {
+    BOOL const notifyDidChangeObject = self.notifyDidChangeObject;
+    if (notifyDidChangeObject || notifyDidChangeSectionsAndObjects) {
         for (NSManagedObject *const object in newMatches) {
             NSIndexPath *const newIndexPath = [self indexPathForObject:object];
-            [delegate controller:self
-                 didChangeObject:object
-                     atIndexPath:nil
-                   forChangeType:MRFetchedResultsChangeInsert
-                    newIndexPath:newIndexPath];
-            
+            [objectChanges addObject:[self mr_changeInfoWithType:MRFetchedResultsChangeInsert atIndexPath:nil newIndexPath:newIndexPath]];
+            if (notifyDidChangeObject) {
+                [delegate controller:self
+                     didChangeObject:object
+                         atIndexPath:nil
+                       forChangeType:MRFetchedResultsChangeInsert
+                        newIndexPath:newIndexPath];
+            }
         }
         for (NSManagedObject *const object in goneMatches) {
             NSIndexPath *const oldIndexPath = oldIndexPaths[object.objectID];
-            [delegate controller:self
-                 didChangeObject:object
-                     atIndexPath:oldIndexPath
-                   forChangeType:MRFetchedResultsChangeDelete
-                    newIndexPath:nil];
+            [objectChanges addObject:[self mr_changeInfoWithType:MRFetchedResultsChangeDelete atIndexPath:oldIndexPath newIndexPath:nil]];
+            if (notifyDidChangeObject) {
+                [delegate controller:self
+                     didChangeObject:object
+                         atIndexPath:oldIndexPath
+                       forChangeType:MRFetchedResultsChangeDelete
+                        newIndexPath:nil];
+            }
         }
         for (NSManagedObject *const object in oldMatches) {
             NSIndexPath *const oldIndexPath = oldIndexPaths[object.objectID];
             NSIndexPath *const newIndexPath = [self indexPathForObject:object];
             if ([oldIndexPath isEqual:newIndexPath]) {
-                [delegate controller:self
-                     didChangeObject:object
-                         atIndexPath:oldIndexPath
-                       forChangeType:MRFetchedResultsChangeUpdate
-                        newIndexPath:newIndexPath];
+                [objectChanges addObject:[self mr_changeInfoWithType:MRFetchedResultsChangeUpdate atIndexPath:oldIndexPath newIndexPath:nil]];
+                if (notifyDidChangeObject) {
+                    [delegate controller:self
+                         didChangeObject:object
+                             atIndexPath:oldIndexPath
+                           forChangeType:MRFetchedResultsChangeUpdate
+                            newIndexPath:newIndexPath];
+                }
             } else {
-                [delegate controller:self
-                     didChangeObject:object
-                         atIndexPath:oldIndexPath
-                       forChangeType:MRFetchedResultsChangeMove
-                        newIndexPath:newIndexPath];
+                [objectChanges addObject:[self mr_changeInfoWithType:MRFetchedResultsChangeMove atIndexPath:oldIndexPath newIndexPath:newIndexPath]];
+                if (notifyDidChangeObject) {
+                    [delegate controller:self
+                         didChangeObject:object
+                             atIndexPath:oldIndexPath
+                           forChangeType:MRFetchedResultsChangeMove
+                            newIndexPath:newIndexPath];
+                }
             }
         }
     }
     // notify changes completed
+    if (notifyDidChangeSectionsAndObjects) {
+        [delegate controller:self didChangeSections:sectionChanges andObjects:objectChanges];
+    }
     if (self.notifyDidChangeContent) {
         [delegate controllerDidChangeContent:self];
     }

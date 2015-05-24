@@ -40,6 +40,7 @@
 @property (nonatomic, assign) BOOL notifyDidChangeSection;
 @property (nonatomic, assign) BOOL notifyWillChangeContent;
 @property (nonatomic, assign) BOOL notifyDidChangeContent;
+@property (nonatomic, assign) BOOL notifyDidChangeSectionsAndObjects;
 @property (nonatomic, assign) BOOL notifySectionIndexTitle;
 
 @property (nonatomic, strong) id<NSObject> observer;
@@ -72,6 +73,13 @@
 - (void)mr_applyChangesWithDeletedObjects:(NSSet *)deletedObjects
                           insertedObjects:(NSSet *)insertedObjects
                            updatedObjects:(NSSet *)updatedObjects;
+
+- (id<MRFetchedResultsSectionChangeInfo>)mr_changeInfoWithType:(MRFetchedResultsChangeType)type
+                                                     atSection:(NSUInteger)index;
+
+- (id<MRFetchedResultsObjectChangeInfo>)mr_changeInfoWithType:(MRFetchedResultsChangeType)type
+                                                  atIndexPath:(NSIndexPath *)indexPath
+                                                 newIndexPath:(NSIndexPath *)newIndexPath;
 
 - (void)mr_notifyChangesInSections:(NSArray *)oldSections
                         indexPaths:(NSMutableDictionary *)oldIndexPaths

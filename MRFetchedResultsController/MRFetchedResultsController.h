@@ -23,7 +23,7 @@
 #import <Foundation/Foundation.h>
 
 @class NSManagedObjectContext, NSFetchRequest;
-@protocol MRFetchedResultsControllerDelegate;
+@protocol MRFetchedResultsControllerDelegate, MRFetchedResultsSectionChangeInfo, MRFetchedResultsObjectChangeInfo;
 
 
 /**
@@ -158,31 +158,47 @@
 // ================== PROTOCOLS ==================
 
 
-// See `NSFetchedResultsSectionInfo`.
-@protocol MRFetchedResultsSectionInfo
+/**
+ This protocol defines the interface for section objects.
+ */
+@protocol MRFetchedResultsSectionInfo <NSObject>
 
-// Name of the section.
+/**
+ Name of the section.
+ */
 @property (nonatomic, readonly) NSString *name;
 
-// Section index title.
+/**
+ Section index title.
+ */
 @property (nonatomic, readonly) NSString *indexTitle;
 
-// Number of objects in section.
+/**
+ Number of objects in section.
+ */
 @property (nonatomic, readonly) NSUInteger numberOfObjects;
 
-// Array of objects in the section.
+/**
+ Array of objects in the section.
+ */
 @property (nonatomic, readonly) NSArray *objects;
 
 @end
 
 
-// See `NSFetchedResultsControllerDelegate`.
+/**
+ `MRFetchedResultsController` instances use methods in this protocol for notifying changes in fetch results to their delegates.
+ */
 @protocol MRFetchedResultsControllerDelegate <NSObject>
 
 typedef NS_ENUM(NSUInteger, MRFetchedResultsChangeType) {
+    /** Specifies that an object was inserted. */
     MRFetchedResultsChangeInsert = 1,
+    /** Specifies that an object was deleted. */
     MRFetchedResultsChangeDelete = 2,
+    /** Specifies that an object was moved. */
     MRFetchedResultsChangeMove = 3,
+    /** Specifies that an object was updated. */
     MRFetchedResultsChangeUpdate = 4
 };
 
@@ -198,6 +214,10 @@ typedef NS_ENUM(NSUInteger, MRFetchedResultsChangeType) {
 @optional
 - (void)controllerWillChangeContent:(MRFetchedResultsController *)controller;
 
+// Notifies the delegate of all changes in sections and objects. See `MRFetchedResultsSectionChangeInfo` and `MRFetchedResultsObjectChangeInfo`.
+@optional
+- (void)controller:(MRFetchedResultsController *)controller didChangeSections:(NSArray *)sectionChanges andObjects:(NSArray *)objectChanges;
+
 // Notifies the delegate that all section and object changes have been sent.
 @optional
 - (void)controllerDidChangeContent:(MRFetchedResultsController *)controller;
@@ -205,5 +225,69 @@ typedef NS_ENUM(NSUInteger, MRFetchedResultsChangeType) {
 // Asks the delegate to return the corresponding section index title for a given section name.
 @optional
 - (NSString *)controller:(MRFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName;
+
+@end
+
+
+/**
+ This protocol defines the interface for section changes in `MRFetchedResultsController`.
+ */
+@protocol MRFetchedResultsSectionChangeInfo <NSObject>
+
+/**
+ The type of change.
+ */
+@property (nonatomic, readonly) MRFetchedResultsChangeType changeType;
+
+/**
+ The original index of the deleted/moved section.
+ */
+@property (nonatomic, readonly) NSUInteger sectionIndex;
+
+/**
+ The new index of the inserted/moved section.
+ */
+@property (nonatomic, readonly) NSUInteger sectionNewIndex;
+
+/**
+ Inserts/Deletes/Moves the changed section in the given collection view.
+ 
+ You should invoke this method within the updates block in `- [UICollectionView performBatchUpdates:completion:]`.
+ 
+ @param collectionView The collection view that will be updated.
+ */
+- (void)performUpdateInCollectionView:(id)collectionView;
+
+@end
+
+
+/**
+ This protocol defines the interface for object changes in `MRFetchedResultsController`.
+ */
+@protocol MRFetchedResultsObjectChangeInfo <NSObject>
+
+/**
+ The type of change.
+ */
+@property (nonatomic, readonly) MRFetchedResultsChangeType changeType;
+
+/**
+ The original index path of the deleted/moved/updated object.
+ */
+@property (nonatomic, readonly) NSIndexPath *objectIndexPath;
+
+/**
+ The new index path of the inserted/moved object.
+ */
+@property (nonatomic, readonly) NSIndexPath *objectNewIndexPath;
+
+/**
+ Inserts/Deletes/Moves/Updates the changed object in the given collection view.
+ 
+ You should invoke this method within the updates block in `- [UICollectionView performBatchUpdates:completion:]`.
+ 
+ @param collectionView The collection view that will be updated.
+ */
+- (void)performUpdateInCollectionView:(id)collectionView;
 
 @end
