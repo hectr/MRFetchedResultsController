@@ -22,6 +22,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class NSPersistentStoreCoordinator, NSManagedObjectContext, NSManagedObject;
 
 /// App delegate that implements itself a simple Core Data stack (no thread confinement).
 @interface MRAppDelegate : UIResponder <UIApplicationDelegate> {

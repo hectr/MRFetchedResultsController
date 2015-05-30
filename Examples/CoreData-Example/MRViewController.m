@@ -23,6 +23,8 @@
 #import "MRViewController.h"
 #import "MRAppDelegate.h"
 
+#import <CoreData/CoreData.h>
+
 
 // -----------------------------------------------------------------------------
 

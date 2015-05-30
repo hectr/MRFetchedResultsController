@@ -784,8 +784,6 @@ static NSCache *__cache = nil;
         return;
     }
     // apply changes
-    
-    
     NSMutableSet *const objectsSet = [NSMutableSet setWithArray:self.fetchedObjects];
     // add new matches
     [objectsSet addObjectsFromArray:newMatches.allObjects];
