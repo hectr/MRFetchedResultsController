@@ -138,6 +138,15 @@
                           inContext:(NSManagedObjectContext *)context;
 
 /**
+ Returns the corresponding section index title for a given section name taking into account delegate's `controller:sectionIndexTitleForSectionName:`.
+ 
+ @param sectionName The name of a section.
+ @return The section index entry corresponding to the section with the given name.
+ */
+
+- (NSString *)mr_sectionIndexTitleForSectionName:(NSString *)sectionName;
+
+/**
  Sets the value of `sectionIndexTitles` and `sectionIndexTitlesSections` properties.
  */
 - (void)mr_setSectionIndexTitles;

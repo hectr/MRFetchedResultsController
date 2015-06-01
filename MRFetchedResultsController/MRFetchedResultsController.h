@@ -104,10 +104,10 @@
 - (NSIndexPath *)indexPathForObject:(id)object;
 
 /**
- Returns the corresponding section index title for a given section name.
+ Returns the default section index title for a given section name.
  
  @param sectionName The name of a section.
- @return The section index entry corresponding to the section with the given name.
+ @return The default section index title corresponding to the section with the given name.
  */
 - (NSString *)sectionIndexTitleForSectionName:(NSString *)sectionName;
 

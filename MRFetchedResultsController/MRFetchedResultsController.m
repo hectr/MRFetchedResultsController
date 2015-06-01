@@ -372,16 +372,12 @@ static NSCache *__cache = nil;
 - (NSString *)sectionIndexTitleForSectionName:(NSString *const)sectionName
 {
     NSString *indexTitle;
-    if (self.notifySectionIndexTitle) {
-        indexTitle = [self.delegate controller:self sectionIndexTitleForSectionName:sectionName];
+    if (sectionName.length == 0) {
+        indexTitle = sectionName;
+    } else if (sectionName.length == 1) {
+        indexTitle = sectionName.uppercaseString;
     } else {
-        if (sectionName.length == 0) {
-            indexTitle = sectionName;
-        } else if (sectionName.length == 1) {
-            indexTitle = sectionName.uppercaseString;
-        } else {
-            indexTitle = [sectionName substringToIndex:1].uppercaseString;
-        }
+        indexTitle = [sectionName substringToIndex:1].uppercaseString;
     }
     return indexTitle;
 }
@@ -568,7 +564,7 @@ static NSCache *__cache = nil;
         if ([objectSectionName isEqual:currentName]) {
             currentLength += 1;
         } else {
-            NSString *const sectionIndexTitle = [self sectionIndexTitleForSectionName:currentName];
+            NSString *const sectionIndexTitle = [self mr_sectionIndexTitleForSectionName:currentName];
             NSRange const range = NSMakeRange(currentLocation, currentLength);
             id<MRFetchedResultsSectionInfo> sectionInfo;
             if (isUsingObjectIDs) {
@@ -596,7 +592,7 @@ static NSCache *__cache = nil;
     }
     // last section
     if (objects.count > 0) {
-        NSString *const sectionIndexTitle = [self sectionIndexTitleForSectionName:currentName];
+        NSString *const sectionIndexTitle = [self mr_sectionIndexTitleForSectionName:currentName];
         NSRange const range = NSMakeRange(currentLocation, currentLength);
         id<MRFetchedResultsSectionInfo> sectionInfo;
         if (isUsingObjectIDs) {
@@ -622,6 +618,17 @@ static NSCache *__cache = nil;
     [self mr_setSectionIndexTitles];
 }
 
+- (NSString *)mr_sectionIndexTitleForSectionName:(NSString *const)sectionName
+{
+    NSString *indexTitle;
+    if (self.notifySectionIndexTitle) {
+        indexTitle = [self.delegate controller:self sectionIndexTitleForSectionName:sectionName];
+    } else {
+        indexTitle = [self sectionIndexTitleForSectionName:sectionName];
+    }
+    return indexTitle;
+}
+
 - (void)mr_setSectionIndexTitles
 {
     NSArray *const sections = self.sections;
@@ -637,7 +644,7 @@ static NSCache *__cache = nil;
      ^(NSString *const candidate, NSUInteger const index, BOOL *const stop) {
          if (NSNull.null != (id)candidate) {
              NSString *const indexTitle =
-             [self sectionIndexTitleForSectionName:candidate];
+             [self mr_sectionIndexTitleForSectionName:candidate];
              if (indexTitle) {
                  [sectionIndexTitles addObject:indexTitle];
                  [sectionIndexTitlesSections addObject:@(index)];
