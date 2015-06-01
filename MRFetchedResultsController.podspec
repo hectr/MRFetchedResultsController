@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MRFetchedResultsController"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "Extensible drop-in replacement for NSFetchedResultsController."
 
   s.description  = <<-DESC
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "5.0"
   s.osx.deployment_target = "10.7"
 
-  s.source       = { :git => "https://github.com/hectr/MRFetchedResultsController.git", :tag => "0.1.1" }
+  s.source       = { :git => "https://github.com/hectr/MRFetchedResultsController.git", :tag => "0.1.2" }
 
   s.source_files  = "MRFetchedResultsController"
 
