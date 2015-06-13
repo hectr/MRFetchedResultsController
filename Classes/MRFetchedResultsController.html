@@ -1,0 +1,3115 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>MRFetchedResultsController Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">MRFetchedResultsController </a></h1>
+				<a id="developerHome" href="../index.html">Héctor Marqués</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">MRFetchedResultsController Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/applyFetchedObjectsChanges">&nbsp;&nbsp;&nbsp;&nbsp;applyFetchedObjectsChanges</option>
+	
+	<option value="//api/name/cache">&nbsp;&nbsp;&nbsp;&nbsp;cache</option>
+	
+	<option value="//api/name/cacheName">&nbsp;&nbsp;&nbsp;&nbsp;cacheName</option>
+	
+	<option value="//api/name/changesAppliedOnSave">&nbsp;&nbsp;&nbsp;&nbsp;changesAppliedOnSave</option>
+	
+	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
+	
+	<option value="//api/name/deletedObjects">&nbsp;&nbsp;&nbsp;&nbsp;deletedObjects</option>
+	
+	<option value="//api/name/didPerformFetch">&nbsp;&nbsp;&nbsp;&nbsp;didPerformFetch</option>
+	
+	<option value="//api/name/fetchRequest">&nbsp;&nbsp;&nbsp;&nbsp;fetchRequest</option>
+	
+	<option value="//api/name/fetchedObjects">&nbsp;&nbsp;&nbsp;&nbsp;fetchedObjects</option>
+	
+	<option value="//api/name/insertedObjects">&nbsp;&nbsp;&nbsp;&nbsp;insertedObjects</option>
+	
+	<option value="//api/name/managedObjectContext">&nbsp;&nbsp;&nbsp;&nbsp;managedObjectContext</option>
+	
+	<option value="//api/name/notifyDidChangeContent">&nbsp;&nbsp;&nbsp;&nbsp;notifyDidChangeContent</option>
+	
+	<option value="//api/name/notifyDidChangeObject">&nbsp;&nbsp;&nbsp;&nbsp;notifyDidChangeObject</option>
+	
+	<option value="//api/name/notifyDidChangeSection">&nbsp;&nbsp;&nbsp;&nbsp;notifyDidChangeSection</option>
+	
+	<option value="//api/name/notifyDidChangeSectionsAndObjects">&nbsp;&nbsp;&nbsp;&nbsp;notifyDidChangeSectionsAndObjects</option>
+	
+	<option value="//api/name/notifySectionIndexTitle">&nbsp;&nbsp;&nbsp;&nbsp;notifySectionIndexTitle</option>
+	
+	<option value="//api/name/notifyWillChangeContent">&nbsp;&nbsp;&nbsp;&nbsp;notifyWillChangeContent</option>
+	
+	<option value="//api/name/numberOfObjects">&nbsp;&nbsp;&nbsp;&nbsp;numberOfObjects</option>
+	
+	<option value="//api/name/observer">&nbsp;&nbsp;&nbsp;&nbsp;observer</option>
+	
+	<option value="//api/name/sectionIndexTitles">&nbsp;&nbsp;&nbsp;&nbsp;sectionIndexTitles</option>
+	
+	<option value="//api/name/sectionIndexTitlesSections">&nbsp;&nbsp;&nbsp;&nbsp;sectionIndexTitlesSections</option>
+	
+	<option value="//api/name/sectionNameKeyPath">&nbsp;&nbsp;&nbsp;&nbsp;sectionNameKeyPath</option>
+	
+	<option value="//api/name/sections">&nbsp;&nbsp;&nbsp;&nbsp;sections</option>
+	
+	<option value="//api/name/sectionsByName">&nbsp;&nbsp;&nbsp;&nbsp;sectionsByName</option>
+	
+	<option value="//api/name/updatedObjects">&nbsp;&nbsp;&nbsp;&nbsp;updatedObjects</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/deleteCacheWithName:">&nbsp;&nbsp;&nbsp;&nbsp;+ deleteCacheWithName:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/indexPathForObject:">&nbsp;&nbsp;&nbsp;&nbsp;- indexPathForObject:</option>
+	
+	<option value="//api/name/initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:</option>
+	
+	<option value="//api/name/mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:</option>
+	
+	<option value="//api/name/mr_buildEntityPredicateForFetchRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_buildEntityPredicateForFetchRequest:</option>
+	
+	<option value="//api/name/mr_buildSectionsWithKeyPath:andObjects:inContext:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_buildSectionsWithKeyPath:andObjects:inContext:</option>
+	
+	<option value="//api/name/mr_cacheResults:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_cacheResults:</option>
+	
+	<option value="//api/name/mr_changeInfoWithType:atIndexPath:newIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_changeInfoWithType:atIndexPath:newIndexPath:</option>
+	
+	<option value="//api/name/mr_changeInfoWithType:atSection:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_changeInfoWithType:atSection:</option>
+	
+	<option value="//api/name/mr_customHashForFetchRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_customHashForFetchRequest:</option>
+	
+	<option value="//api/name/mr_managedObjectContextNotificationName">&nbsp;&nbsp;&nbsp;&nbsp;- mr_managedObjectContextNotificationName</option>
+	
+	<option value="//api/name/mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:</option>
+	
+	<option value="//api/name/mr_performRequest:inContext:sectionNameKeyPath:error:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_performRequest:inContext:sectionNameKeyPath:error:</option>
+	
+	<option value="//api/name/mr_sectionIndexTitleForSectionName:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_sectionIndexTitleForSectionName:</option>
+	
+	<option value="//api/name/mr_setSectionIndexTitles">&nbsp;&nbsp;&nbsp;&nbsp;- mr_setSectionIndexTitles</option>
+	
+	<option value="//api/name/mr_startMonitoringChanges">&nbsp;&nbsp;&nbsp;&nbsp;- mr_startMonitoringChanges</option>
+	
+	<option value="//api/name/mr_stopMonitoringChanges">&nbsp;&nbsp;&nbsp;&nbsp;- mr_stopMonitoringChanges</option>
+	
+	<option value="//api/name/mr_updateContent:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_updateContent:</option>
+	
+	<option value="//api/name/mr_updateDelegateFlags:">&nbsp;&nbsp;&nbsp;&nbsp;- mr_updateDelegateFlags:</option>
+	
+	<option value="//api/name/objectAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- objectAtIndexPath:</option>
+	
+	<option value="//api/name/performFetch:">&nbsp;&nbsp;&nbsp;&nbsp;- performFetch:</option>
+	
+	<option value="//api/name/sectionForSectionIndexTitle:atIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- sectionForSectionIndexTitle:atIndex:</option>
+	
+	<option value="//api/name/sectionIndexTitleForSectionName:">&nbsp;&nbsp;&nbsp;&nbsp;- sectionIndexTitleForSectionName:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Internal Methods">Internal Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/applyFetchedObjectsChanges">applyFetchedObjectsChanges</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cache">cache</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cacheName">cacheName</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/changesAppliedOnSave">changesAppliedOnSave</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deletedObjects">deletedObjects</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/didPerformFetch">didPerformFetch</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchRequest">fetchRequest</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchedObjects">fetchedObjects</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/insertedObjects">insertedObjects</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedObjectContext">managedObjectContext</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/notifyDidChangeContent">notifyDidChangeContent</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/notifyDidChangeObject">notifyDidChangeObject</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/notifyDidChangeSection">notifyDidChangeSection</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/notifyDidChangeSectionsAndObjects">notifyDidChangeSectionsAndObjects</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/notifySectionIndexTitle">notifySectionIndexTitle</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/notifyWillChangeContent">notifyWillChangeContent</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfObjects">numberOfObjects</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/observer">observer</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sectionIndexTitles">sectionIndexTitles</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sectionIndexTitlesSections">sectionIndexTitlesSections</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sectionNameKeyPath">sectionNameKeyPath</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sections">sections</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sectionsByName">sectionsByName</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updatedObjects">updatedObjects</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteCacheWithName:">deleteCacheWithName:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/indexPathForObject:">indexPathForObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:">initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:">mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_buildEntityPredicateForFetchRequest:">mr_buildEntityPredicateForFetchRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_buildSectionsWithKeyPath:andObjects:inContext:">mr_buildSectionsWithKeyPath:andObjects:inContext:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_cacheResults:">mr_cacheResults:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_changeInfoWithType:atIndexPath:newIndexPath:">mr_changeInfoWithType:atIndexPath:newIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_changeInfoWithType:atSection:">mr_changeInfoWithType:atSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_customHashForFetchRequest:">mr_customHashForFetchRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_managedObjectContextNotificationName">mr_managedObjectContextNotificationName</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:">mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_performRequest:inContext:sectionNameKeyPath:error:">mr_performRequest:inContext:sectionNameKeyPath:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_sectionIndexTitleForSectionName:">mr_sectionIndexTitleForSectionName:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_setSectionIndexTitles">mr_setSectionIndexTitles</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_startMonitoringChanges">mr_startMonitoringChanges</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_stopMonitoringChanges">mr_stopMonitoringChanges</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_updateContent:">mr_updateContent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mr_updateDelegateFlags:">mr_updateDelegateFlags:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/objectAtIndexPath:">objectAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performFetch:">performFetch:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sectionForSectionIndexTitle:atIndex:">sectionForSectionIndexTitle:atIndex:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sectionIndexTitleForSectionName:">sectionIndexTitleForSectionName:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="MRFetchedResultsController Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">MRFetchedResultsController Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">MRFetchedResultsController.h<br />MRFetchedResultsController.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class provides the same interface than <code>NSFetchedResultsController</code> for managing the results returned from a Core Data fetch request.</p>
+
+<p>Extension that exposes non-public methods of <code>MRFetchedResultsController</code> instances.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:">&ndash;&nbsp;initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:</a></code>
+		<span class="tooltip"><p>Initializes an instance of <code>MRFetchedResultsController</code>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/performFetch:">&ndash;&nbsp;performFetch:</a></code>
+		<span class="tooltip"><p>Executes the fetch request to get objects.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fetchRequest">&nbsp;&nbsp;fetchRequest</a></code>
+		<span class="tooltip"><p><code>NSFetchRequest</code> instance used to do the fetching.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/managedObjectContext">&nbsp;&nbsp;managedObjectContext</a></code>
+		<span class="tooltip"><p>Managed Object Context used to fetch objects.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sectionNameKeyPath">&nbsp;&nbsp;sectionNameKeyPath</a></code>
+		<span class="tooltip"><p>The keyPath on the fetched objects used to determine the section they belong to.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cacheName">&nbsp;&nbsp;cacheName</a></code>
+		<span class="tooltip"><p>Name of the section information in-memory <a href="#//api/name/cache">cache</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+		<span class="tooltip"><p>Delegate that is notified when the result set changes.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteCacheWithName:">+&nbsp;deleteCacheWithName:</a></code>
+		<span class="tooltip"><p>Deletes the cached section information with the given name. If name is <code>nil</code>, then the whole <a href="#//api/name/cache">cache</a> is deleted.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fetchedObjects">&nbsp;&nbsp;fetchedObjects</a></code>
+		<span class="tooltip"><p>Returns the results of the fetch.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/objectAtIndexPath:">&ndash;&nbsp;objectAtIndexPath:</a></code>
+		<span class="tooltip"><p>Returns the fetched object at the given index path.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/indexPathForObject:">&ndash;&nbsp;indexPathForObject:</a></code>
+		<span class="tooltip"><p>Returns the index path of a given object.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sectionIndexTitleForSectionName:">&ndash;&nbsp;sectionIndexTitleForSectionName:</a></code>
+		<span class="tooltip"><p>Returns the default section index title for a given section name.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sectionIndexTitles">&nbsp;&nbsp;sectionIndexTitles</a></code>
+		<span class="tooltip"><p>Returns the array of section index titles.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sections">&nbsp;&nbsp;sections</a></code>
+		<span class="tooltip"><p>Returns an array of objects that implement the <a href="../Classes/MRFetchedResultsSectionInfo.html"><code>MRFetchedResultsSectionInfo</code></a> protocol.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sectionForSectionIndexTitle:atIndex:">&ndash;&nbsp;sectionForSectionIndexTitle:atIndex:</a></code>
+		<span class="tooltip"><p>Returns the section number for the given section index title and index.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/applyFetchedObjectsChanges">&nbsp;&nbsp;applyFetchedObjectsChanges</a></code>
+		<span class="tooltip"><p>If set, changes in fetched objects and <a href="#//api/name/sections">sections</a> are applied immediately when a managed object context notification is received; otherwise changes are stored, but they are not applied until <code>applyFetchedObjectsChanges</code> is set.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/changesAppliedOnSave">&nbsp;&nbsp;changesAppliedOnSave</a></code>
+		<span class="tooltip"><p>If set, the receiver listens to <code>NSManagedObjectContextDidSaveNotification</code>. Otherwise it listens to <code>NSManagedObjectContextObjectsDidChangeNotification</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_updateDelegateFlags:">&ndash;&nbsp;mr_updateDelegateFlags:</a></code>
+		<span class="tooltip"><p>Updates the receiver&rsquo;s <code>notify*</code> <a href="#//api/name/delegate">delegate</a> flags for the given <a href="#//api/name/delegate">delegate</a> object.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_performRequest:inContext:sectionNameKeyPath:error:">&ndash;&nbsp;mr_performRequest:inContext:sectionNameKeyPath:error:</a></code>
+		<span class="tooltip"><p>Performs the given fetch request in the given context using the given keypath for the name of the <a href="#//api/name/sections">sections</a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_buildSectionsWithKeyPath:andObjects:inContext:">&ndash;&nbsp;mr_buildSectionsWithKeyPath:andObjects:inContext:</a></code>
+		<span class="tooltip"><p>Builds the structures that store the <a href="#//api/name/sections">sections</a> information</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_sectionIndexTitleForSectionName:">&ndash;&nbsp;mr_sectionIndexTitleForSectionName:</a></code>
+		<span class="tooltip"><p>Returns the corresponding section index title for a given section name taking into account delegate&rsquo;s <code>controller:</code>sectionIndexTitleForSectionName:<code></code>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_setSectionIndexTitles">&ndash;&nbsp;mr_setSectionIndexTitles</a></code>
+		<span class="tooltip"><p>Sets the value of <a href="#//api/name/sectionIndexTitles"><code>sectionIndexTitles</code></a> and <a href="#//api/name/sectionIndexTitlesSections"><code>sectionIndexTitlesSections</code></a> properties.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_customHashForFetchRequest:">&ndash;&nbsp;mr_customHashForFetchRequest:</a></code>
+		<span class="tooltip"><p>Calculates a hash of the given fetch request.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_cacheResults:">&ndash;&nbsp;mr_cacheResults:</a></code>
+		<span class="tooltip"><p>Caches not only the given <a href="#//api/name/fetchedObjects"><code>fetchedObjects</code></a>, but also the <code>_</code>sections<code></code>, <code>_</code>sectionsByName<code></code>, <code>_</code>sectionIndexTitles<code></code>, <code>_</code>sectionIndexTitlesSections<code></code> ivars.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_buildEntityPredicateForFetchRequest:">&ndash;&nbsp;mr_buildEntityPredicateForFetchRequest:</a></code>
+		<span class="tooltip"><p>Returns a predicate that filters managed objects whose entity name is not equal to the <code>entityName</code> of the parameter.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_updateContent:">&ndash;&nbsp;mr_updateContent:</a></code>
+		<span class="tooltip"><p>Uses the managed object context notification&rsquo;s <code>userInfo</code> dictionary for updating the results set.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:">&ndash;&nbsp;mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:</a></code>
+		<span class="tooltip"><p>Applies the changes represented by the given parameters in the results set.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_changeInfoWithType:atIndexPath:newIndexPath:">&ndash;&nbsp;mr_changeInfoWithType:atIndexPath:newIndexPath:</a></code>
+		<span class="tooltip"><p>Builds an object change info with the given parameters.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:">&ndash;&nbsp;mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:</a></code>
+		<span class="tooltip"><p>Notifies the changes represented by the parameters to the receiver&rsquo;s <a href="#//api/name/delegate"><code>delegate</code></a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_managedObjectContextNotificationName">&ndash;&nbsp;mr_managedObjectContextNotificationName</a></code>
+		<span class="tooltip"><p>Returns the notification that must be used for monitoring changes in the results set.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_startMonitoringChanges">&ndash;&nbsp;mr_startMonitoringChanges</a></code>
+		<span class="tooltip"><p>If the receiver is not doing so, it starts monitoring changes in the results set.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_stopMonitoringChanges">&ndash;&nbsp;mr_stopMonitoringChanges</a></code>
+		<span class="tooltip"><p>If the receiver is monitoring changes in the results set, it stops doing so.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Internal Methods" name="task_Internal Methods"></a>
+						<h3 class="subsubtitle task-title">Internal Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cache">&nbsp;&nbsp;cache</a></code>
+		<span class="tooltip"><p>The cache used by the fetched results controller when a <a href="#//api/name/cacheName"><code>cacheName</code></a> is provided.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/didPerformFetch">&nbsp;&nbsp;didPerformFetch</a></code>
+		<span class="tooltip"><p>Set when a fetch has been performed.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberOfObjects">&nbsp;&nbsp;numberOfObjects</a></code>
+		<span class="tooltip"><p>Number of objects in the results set.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sectionsByName">&nbsp;&nbsp;sectionsByName</a></code>
+		<span class="tooltip"><p>Section info objects by name.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sectionIndexTitlesSections">&nbsp;&nbsp;sectionIndexTitlesSections</a></code>
+		<span class="tooltip"><p>Indexes of the <a href="#//api/name/sections">sections</a> in the section index.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/notifyDidChangeObject">&nbsp;&nbsp;notifyDidChangeObject</a></code>
+		<span class="tooltip"><p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/notifyDidChangeSection">&nbsp;&nbsp;notifyDidChangeSection</a></code>
+		<span class="tooltip"><p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeSection:atIndex:forChangeType:</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/notifyWillChangeContent">&nbsp;&nbsp;notifyWillChangeContent</a></code>
+		<span class="tooltip"><p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controllerWillChangeContent:</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/notifyDidChangeContent">&nbsp;&nbsp;notifyDidChangeContent</a></code>
+		<span class="tooltip"><p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controllerDidChangeContent:</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/notifyDidChangeSectionsAndObjects">&nbsp;&nbsp;notifyDidChangeSectionsAndObjects</a></code>
+		<span class="tooltip"><p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeSections:andObjects:</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/notifySectionIndexTitle">&nbsp;&nbsp;notifySectionIndexTitle</a></code>
+		<span class="tooltip"><p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:</code>sectionIndexTitleForSectionName:<code></code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/observer">&nbsp;&nbsp;observer</a></code>
+		<span class="tooltip"><p>The observer object used for monitoring the results set changes.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/insertedObjects">&nbsp;&nbsp;insertedObjects</a></code>
+		<span class="tooltip"><p>Property used for storing inserted objects until they are applied to the results set.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updatedObjects">&nbsp;&nbsp;updatedObjects</a></code>
+		<span class="tooltip"><p>Property used for storing updated objects until they are applied to the results set.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deletedObjects">&nbsp;&nbsp;deletedObjects</a></code>
+		<span class="tooltip"><p>Property used for storing deleted objects until they are applied to the results set.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mr_changeInfoWithType:atSection:">&ndash;&nbsp;mr_changeInfoWithType:atSection:</a></code>
+		<span class="tooltip"><p>Builds a section change info with the given parameters.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/applyFetchedObjectsChanges" title="applyFetchedObjectsChanges"></a>
+	<h3 class="subsubtitle method-title">applyFetchedObjectsChanges</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If set, changes in fetched objects and <a href="#//api/name/sections">sections</a> are applied immediately when a managed object context notification is received; otherwise changes are stored, but they are not applied until <code>applyFetchedObjectsChanges</code> is set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL applyFetchedObjectsChanges</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If set, changes in fetched objects and <a href="#//api/name/sections">sections</a> are applied immediately when a managed object context notification is received; otherwise changes are stored, but they are not applied until <code>applyFetchedObjectsChanges</code> is set.</p>
+
+<p>Default value is YES.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/cache" title="cache"></a>
+	<h3 class="subsubtitle method-title">cache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The cache used by the fetched results controller when a <a href="#//api/name/cacheName"><code>cacheName</code></a> is provided.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSCache *cache</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The cache used by the fetched results controller when a <a href="#//api/name/cacheName"><code>cacheName</code></a> is provided.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/cacheName" title="cacheName"></a>
+	<h3 class="subsubtitle method-title">cacheName</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Name of the section information in-memory <a href="#//api/name/cache">cache</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSString *cacheName</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Name of the section information in-memory <a href="#//api/name/cache">cache</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/changesAppliedOnSave" title="changesAppliedOnSave"></a>
+	<h3 class="subsubtitle method-title">changesAppliedOnSave</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If set, the receiver listens to <code>NSManagedObjectContextDidSaveNotification</code>. Otherwise it listens to <code>NSManagedObjectContextObjectsDidChangeNotification</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL changesAppliedOnSave</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If set, the receiver listens to <code>NSManagedObjectContextDidSaveNotification</code>. Otherwise it listens to <code>NSManagedObjectContextObjectsDidChangeNotification</code>.</p>
+
+<p>Default value is NO.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="subsubtitle method-title">delegate</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Delegate that is notified when the result set changes.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;MRFetchedResultsControllerDelegate&gt; delegate</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Delegate that is notified when the result set changes.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deletedObjects" title="deletedObjects"></a>
+	<h3 class="subsubtitle method-title">deletedObjects</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Property used for storing deleted objects until they are applied to the results set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSMutableSet *deletedObjects</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Property used for storing deleted objects until they are applied to the results set.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/didPerformFetch" title="didPerformFetch"></a>
+	<h3 class="subsubtitle method-title">didPerformFetch</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set when a fetch has been performed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL didPerformFetch</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set when a fetch has been performed.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fetchRequest" title="fetchRequest"></a>
+	<h3 class="subsubtitle method-title">fetchRequest</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p><code>NSFetchRequest</code> instance used to do the fetching.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSFetchRequest *fetchRequest</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p><code>NSFetchRequest</code> instance used to do the fetching.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fetchedObjects" title="fetchedObjects"></a>
+	<h3 class="subsubtitle method-title">fetchedObjects</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the results of the fetch.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSArray *fetchedObjects</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the results of the fetch.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/insertedObjects" title="insertedObjects"></a>
+	<h3 class="subsubtitle method-title">insertedObjects</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Property used for storing inserted objects until they are applied to the results set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSMutableSet *insertedObjects</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Property used for storing inserted objects until they are applied to the results set.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/managedObjectContext" title="managedObjectContext"></a>
+	<h3 class="subsubtitle method-title">managedObjectContext</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Managed Object Context used to fetch objects.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Managed Object Context used to fetch objects.</p>
+
+<p>The controller registers to listen to change notifications on this context (see <a href="#//api/name/applyFetchedObjectsChanges"><code>applyFetchedObjectsChanges</code></a>) and properly update its result set and section information (see <a href="#//api/name/changesAppliedOnSave"><code>changesAppliedOnSave</code></a>).</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/notifyDidChangeContent" title="notifyDidChangeContent"></a>
+	<h3 class="subsubtitle method-title">notifyDidChangeContent</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controllerDidChangeContent:</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL notifyDidChangeContent</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controllerDidChangeContent:</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/notifyDidChangeObject" title="notifyDidChangeObject"></a>
+	<h3 class="subsubtitle method-title">notifyDidChangeObject</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL notifyDidChangeObject</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/notifyDidChangeSection" title="notifyDidChangeSection"></a>
+	<h3 class="subsubtitle method-title">notifyDidChangeSection</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeSection:atIndex:forChangeType:</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL notifyDidChangeSection</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeSection:atIndex:forChangeType:</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/notifyDidChangeSectionsAndObjects" title="notifyDidChangeSectionsAndObjects"></a>
+	<h3 class="subsubtitle method-title">notifyDidChangeSectionsAndObjects</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeSections:andObjects:</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL notifyDidChangeSectionsAndObjects</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:didChangeSections:andObjects:</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/notifySectionIndexTitle" title="notifySectionIndexTitle"></a>
+	<h3 class="subsubtitle method-title">notifySectionIndexTitle</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:</code>sectionIndexTitleForSectionName:<code></code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL notifySectionIndexTitle</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controller:</code>sectionIndexTitleForSectionName:<code></code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/notifyWillChangeContent" title="notifyWillChangeContent"></a>
+	<h3 class="subsubtitle method-title">notifyWillChangeContent</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controllerWillChangeContent:</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL notifyWillChangeContent</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set when the <a href="#//api/name/delegate"><code>delegate</code></a> responds to <code>controllerWillChangeContent:</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numberOfObjects" title="numberOfObjects"></a>
+	<h3 class="subsubtitle method-title">numberOfObjects</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Number of objects in the results set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSUInteger numberOfObjects</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Number of objects in the results set.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/observer" title="observer"></a>
+	<h3 class="subsubtitle method-title">observer</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The observer object used for monitoring the results set changes.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) id&lt;NSObject&gt; observer</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The observer object used for monitoring the results set changes.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sectionIndexTitles" title="sectionIndexTitles"></a>
+	<h3 class="subsubtitle method-title">sectionIndexTitles</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the array of section index titles.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSArray *sectionIndexTitles</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the array of section index titles.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sectionIndexTitlesSections" title="sectionIndexTitlesSections"></a>
+	<h3 class="subsubtitle method-title">sectionIndexTitlesSections</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Indexes of the <a href="#//api/name/sections">sections</a> in the section index.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray *sectionIndexTitlesSections</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Indexes of the <a href="#//api/name/sections">sections</a> in the section index.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sectionNameKeyPath" title="sectionNameKeyPath"></a>
+	<h3 class="subsubtitle method-title">sectionNameKeyPath</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The keyPath on the fetched objects used to determine the section they belong to.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSString *sectionNameKeyPath</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The keyPath on the fetched objects used to determine the section they belong to.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sections" title="sections"></a>
+	<h3 class="subsubtitle method-title">sections</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns an array of objects that implement the <a href="../Classes/MRFetchedResultsSectionInfo.html"><code>MRFetchedResultsSectionInfo</code></a> protocol.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSArray *sections</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns an array of objects that implement the <a href="../Classes/MRFetchedResultsSectionInfo.html"><code>MRFetchedResultsSectionInfo</code></a> protocol.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sectionsByName" title="sectionsByName"></a>
+	<h3 class="subsubtitle method-title">sectionsByName</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Section info objects by name.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary *sectionsByName</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Section info objects by name.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updatedObjects" title="updatedObjects"></a>
+	<h3 class="subsubtitle method-title">updatedObjects</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Property used for storing updated objects until they are applied to the results set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSMutableSet *updatedObjects</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Property used for storing updated objects until they are applied to the results set.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteCacheWithName:" title="deleteCacheWithName:"></a>
+	<h3 class="subsubtitle method-title">deleteCacheWithName:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deletes the cached section information with the given name. If name is <code>nil</code>, then the whole <a href="#//api/name/cache">cache</a> is deleted.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)deleteCacheWithName:(NSString *)<em>name</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Deletes the cached section information with the given name. If name is <code>nil</code>, then the whole <a href="#//api/name/cache">cache</a> is deleted.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/indexPathForObject:" title="indexPathForObject:"></a>
+	<h3 class="subsubtitle method-title">indexPathForObject:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the index path of a given object.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSIndexPath *)indexPathForObject:(id)<em>object</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>object</em></dt>
+			<dd><p>An object in the receiver’s fetch results.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The index path of an object in the receiver’s fetch results, or <code>nil</code> if object could not be found.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the index path of a given object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:" title="initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:"></a>
+	<h3 class="subsubtitle method-title">initWithFetchRequest:managedObjectContext:sectionNameKeyPath:cacheName:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes an instance of <code>MRFetchedResultsController</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithFetchRequest:(NSFetchRequest *)<em>fetchRequest</em> managedObjectContext:(NSManagedObjectContext *)<em>context</em> sectionNameKeyPath:(NSString *)<em>sectionNameKeyPath</em> cacheName:(NSString *)<em>name</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fetchRequest</em></dt>
+			<dd><p>The fetch request used to get the objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>context</em></dt>
+			<dd><p>The context that will hold the fetched objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sectionNameKeyPath</em></dt>
+			<dd><p>Keypath on resulting objects that returns their section name.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>cacheName</em></dt>
+			<dd><p>Identifier of the in-memory <a href="#//api/name/cache">cache</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The receiver initialized with the given parameters.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializes an instance of <code>MRFetchedResultsController</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:" title="mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:"></a>
+	<h3 class="subsubtitle method-title">mr_applyChangesWithDeletedObjects:insertedObjects:updatedObjects:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Applies the changes represented by the given parameters in the results set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mr_applyChangesWithDeletedObjects:(NSSet *const)<em>deletedObjects</em> insertedObjects:(NSSet *const)<em>insertedObjects</em> updatedObjects:(NSSet *const)<em>updatedObjects</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Applies the changes represented by the given parameters in the results set.</p>
+
+<p>@parameter <a href="#//api/name/deletedObjects">deletedObjects</a> Set of objects from the results set that have been deleted.
+@parameter <a href="#//api/name/insertedObjects">insertedObjects</a> Set of objects that should be inserted into the results set.
+@parameter <a href="#//api/name/updatedObjects">updatedObjects</a> Set of objects from the results set that have been updated.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_buildEntityPredicateForFetchRequest:" title="mr_buildEntityPredicateForFetchRequest:"></a>
+	<h3 class="subsubtitle method-title">mr_buildEntityPredicateForFetchRequest:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a predicate that filters managed objects whose entity name is not equal to the <code>entityName</code> of the parameter.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSPredicate *)mr_buildEntityPredicateForFetchRequest:(NSFetchRequest *const)<em>fetchRequest</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fetchRequest</em></dt>
+			<dd><p>The fetch request whose <code>entityName</code> will be used for creating the predicate.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A predicate that can filter objects that don&rsquo;t match fetch request&rsquo;s entity name.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a predicate that filters managed objects whose entity name is not equal to the <code>entityName</code> of the parameter.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_buildSectionsWithKeyPath:andObjects:inContext:" title="mr_buildSectionsWithKeyPath:andObjects:inContext:"></a>
+	<h3 class="subsubtitle method-title">mr_buildSectionsWithKeyPath:andObjects:inContext:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Builds the structures that store the <a href="#//api/name/sections">sections</a> information</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mr_buildSectionsWithKeyPath:(NSString *const)<em>keyPath</em> andObjects:(NSArray *const)<em>objects</em> inContext:(NSManagedObjectContext *const)<em>context</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>keyPath</em></dt>
+			<dd><p>The keypath used for determining the name of the <a href="#//api/name/sections">sections</a>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>objects</em></dt>
+			<dd><p>The fetched objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>context</em></dt>
+			<dd><p>The context used for fetching the objects.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Builds the structures that store the <a href="#//api/name/sections">sections</a> information</p>
+
+<p>This method will set <a href="#//api/name/sections"><code>sections</code></a> and <a href="#//api/name/sectionsByName"><code>sectionsByName</code></a> properties and will invoke <a href="#//api/name/mr_setSectionIndexTitles"><code>mr_setSectionIndexTitles</code></a> if needed.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_cacheResults:" title="mr_cacheResults:"></a>
+	<h3 class="subsubtitle method-title">mr_cacheResults:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Caches not only the given <a href="#//api/name/fetchedObjects"><code>fetchedObjects</code></a>, but also the <code>_</code>sections<code></code>, <code>_</code>sectionsByName<code></code>, <code>_</code>sectionIndexTitles<code></code>, <code>_</code>sectionIndexTitlesSections<code></code> ivars.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mr_cacheResults:(NSArray *const)<em>fetchedObjects</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Caches not only the given <a href="#//api/name/fetchedObjects"><code>fetchedObjects</code></a>, but also the <code>_</code>sections<code></code>, <code>_</code>sectionsByName<code></code>, <code>_</code>sectionIndexTitles<code></code>, <code>_</code>sectionIndexTitlesSections<code></code> ivars.</p>
+
+<p>See <a href="#//api/name/cache"><code>cache</code></a> and <a href="#//api/name/cacheName"><code>cacheName</code></a> properties.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_changeInfoWithType:atIndexPath:newIndexPath:" title="mr_changeInfoWithType:atIndexPath:newIndexPath:"></a>
+	<h3 class="subsubtitle method-title">mr_changeInfoWithType:atIndexPath:newIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Builds an object change info with the given parameters.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id&lt;MRFetchedResultsObjectChangeInfo&gt;)mr_changeInfoWithType:(MRFetchedResultsChangeType const)<em>type</em> atIndexPath:(NSIndexPath *const)<em>indexPath</em> newIndexPath:(NSIndexPath *const)<em>newIndexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>type</em></dt>
+			<dd><p>The type of the change.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The original index path of the changed object or <code>nil</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>newIndexPath</em></dt>
+			<dd><p>The new index path of the changed object or <code>nil</code>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The object that represents a change of the given type in the object that was at the given index path and/or will be in the new index path.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Builds an object change info with the given parameters.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_changeInfoWithType:atSection:" title="mr_changeInfoWithType:atSection:"></a>
+	<h3 class="subsubtitle method-title">mr_changeInfoWithType:atSection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Builds a section change info with the given parameters.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id&lt;MRFetchedResultsSectionChangeInfo&gt;)mr_changeInfoWithType:(MRFetchedResultsChangeType)<em>type</em> atSection:(NSUInteger)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>type</em></dt>
+			<dd><p>The type of the change.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>The index of the changed section.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The object that represents a change of the given type in the section at the given index.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Builds a section change info with the given parameters.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_customHashForFetchRequest:" title="mr_customHashForFetchRequest:"></a>
+	<h3 class="subsubtitle method-title">mr_customHashForFetchRequest:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Calculates a hash of the given fetch request.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)mr_customHashForFetchRequest:(NSFetchRequest *const)<em>fetchRequest</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fetchRequest</em></dt>
+			<dd><p>The fetch request whose hash will be calculated.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An integer that can be used as a hash number.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Calculates a hash of the given fetch request.</p>
+
+<p>This hash is used for forming the keys used by the <a href="#//api/name/cache"><code>cache</code></a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_managedObjectContextNotificationName" title="mr_managedObjectContextNotificationName"></a>
+	<h3 class="subsubtitle method-title">mr_managedObjectContextNotificationName</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the notification that must be used for monitoring changes in the results set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)mr_managedObjectContextNotificationName</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the notification that must be used for monitoring changes in the results set.</p>
+
+<p>See <a href="#//api/name/changesAppliedOnSave"><code>changesAppliedOnSave</code></a> property.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:" title="mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:"></a>
+	<h3 class="subsubtitle method-title">mr_notifyChangesInSections:indexPaths:objects:andNewObjects:andGoneObjects:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Notifies the changes represented by the parameters to the receiver&rsquo;s <a href="#//api/name/delegate"><code>delegate</code></a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mr_notifyChangesInSections:(NSArray *const)<em>oldSections</em> indexPaths:(NSDictionary *const)<em>oldIndexPaths</em> objects:(NSSet *const)<em>oldMatches</em> andNewObjects:(NSSet *const)<em>newMatches</em> andGoneObjects:(NSSet *const)<em>goneMatches</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>oldSections</em></dt>
+			<dd><p>The section info objects of the <a href="#//api/name/sections">sections</a> moved or deleted.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>oldIndexPaths</em></dt>
+			<dd><p>The index paths of the deleted objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>oldMatches</em></dt>
+			<dd><p>The fetched objects updated or moved.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>newMatches</em></dt>
+			<dd><p>The fetched objects inserted into the results set.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>goneMatches</em></dt>
+			<dd><p>The fetched objects deleted from the results set.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Notifies the changes represented by the parameters to the receiver&rsquo;s <a href="#//api/name/delegate"><code>delegate</code></a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_performRequest:inContext:sectionNameKeyPath:error:" title="mr_performRequest:inContext:sectionNameKeyPath:error:"></a>
+	<h3 class="subsubtitle method-title">mr_performRequest:inContext:sectionNameKeyPath:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Performs the given fetch request in the given context using the given keypath for the name of the <a href="#//api/name/sections">sections</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)mr_performRequest:(NSFetchRequest *const)<em>fetchRequest</em> inContext:(NSManagedObjectContext *const)<em>context</em> sectionNameKeyPath:(NSString *const)<em>sectionNameKeyPath</em> error:(NSError **const)<em>errorPtr</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fetchRequest</em></dt>
+			<dd><p>The fetch request used to get the objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>context</em></dt>
+			<dd><p>The context that will hold the fetched objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sectionNameKeyPath</em></dt>
+			<dd><p>Keypath on resulting objects that returns their section name.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>errorPtr</em></dt>
+			<dd><p>If the fetch request fails, it may contain an <code>NSError</code> object describing the failure.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p><code>YES</code> if the fetch request is performed successfully; <code>NO</code> otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Performs the given fetch request in the given context using the given keypath for the name of the <a href="#//api/name/sections">sections</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_sectionIndexTitleForSectionName:" title="mr_sectionIndexTitleForSectionName:"></a>
+	<h3 class="subsubtitle method-title">mr_sectionIndexTitleForSectionName:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the corresponding section index title for a given section name taking into account delegate&rsquo;s <code>controller:</code>sectionIndexTitleForSectionName:<code></code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)mr_sectionIndexTitleForSectionName:(NSString *const)<em>sectionName</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sectionName</em></dt>
+			<dd><p>The name of a section.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The section index entry corresponding to the section with the given name.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the corresponding section index title for a given section name taking into account delegate&rsquo;s <code>controller:</code>sectionIndexTitleForSectionName:<code></code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_setSectionIndexTitles" title="mr_setSectionIndexTitles"></a>
+	<h3 class="subsubtitle method-title">mr_setSectionIndexTitles</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the value of <a href="#//api/name/sectionIndexTitles"><code>sectionIndexTitles</code></a> and <a href="#//api/name/sectionIndexTitlesSections"><code>sectionIndexTitlesSections</code></a> properties.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mr_setSectionIndexTitles</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the value of <a href="#//api/name/sectionIndexTitles"><code>sectionIndexTitles</code></a> and <a href="#//api/name/sectionIndexTitlesSections"><code>sectionIndexTitlesSections</code></a> properties.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_startMonitoringChanges" title="mr_startMonitoringChanges"></a>
+	<h3 class="subsubtitle method-title">mr_startMonitoringChanges</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If the receiver is not doing so, it starts monitoring changes in the results set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mr_startMonitoringChanges</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If the receiver is not doing so, it starts monitoring changes in the results set.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_stopMonitoringChanges" title="mr_stopMonitoringChanges"></a>
+	<h3 class="subsubtitle method-title">mr_stopMonitoringChanges</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If the receiver is monitoring changes in the results set, it stops doing so.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)mr_stopMonitoringChanges</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p><code>YES</code> if the receiver was monitoring changes; <code>NO</code> otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If the receiver is monitoring changes in the results set, it stops doing so.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_updateContent:" title="mr_updateContent:"></a>
+	<h3 class="subsubtitle method-title">mr_updateContent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Uses the managed object context notification&rsquo;s <code>userInfo</code> dictionary for updating the results set.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mr_updateContent:(NSDictionary *const)<em>userInfo</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Uses the managed object context notification&rsquo;s <code>userInfo</code> dictionary for updating the results set.</p>
+
+<p>Depending on the value of <a href="#//api/name/changesAppliedOnSave"><code>changesAppliedOnSave</code></a>, the changes are applied immediately or stored in <a href="#//api/name/insertedObjects"><code>insertedObjects</code></a>, <a href="#//api/name/updatedObjects"><code>updatedObjects</code></a> and <a href="#//api/name/deletedObjects"><code>deletedObjects</code></a> properties.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mr_updateDelegateFlags:" title="mr_updateDelegateFlags:"></a>
+	<h3 class="subsubtitle method-title">mr_updateDelegateFlags:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Updates the receiver&rsquo;s <code>notify*</code> <a href="#//api/name/delegate">delegate</a> flags for the given <a href="#//api/name/delegate">delegate</a> object.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mr_updateDelegateFlags:(id&lt;MRFetchedResultsControllerDelegate&gt; const)<em>delegate</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delegate</em></dt>
+			<dd><p>The object used for setting the <a href="#//api/name/delegate">delegate</a> flags values.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Updates the receiver&rsquo;s <code>notify*</code> <a href="#//api/name/delegate">delegate</a> flags for the given <a href="#//api/name/delegate">delegate</a> object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController_Internal.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/objectAtIndexPath:" title="objectAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">objectAtIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the fetched object at the given index path.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)objectAtIndexPath:(NSIndexPath *)<em>fetchedIndexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fetchedIndexPath</em></dt>
+			<dd><p>An index path in the fetch results.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The object at the given index path.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the fetched object at the given index path.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/performFetch:" title="performFetch:"></a>
+	<h3 class="subsubtitle method-title">performFetch:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Executes the fetch request to get objects.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)performFetch:(NSError **)<em>errorPtr</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>errorPtr</em></dt>
+			<dd><p>If the fetch is not successful, upon return contains an error object describing the problem.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns <code>YES</code> if successful or <code>NO</code> otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Executes the fetch request to get objects.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sectionForSectionIndexTitle:atIndex:" title="sectionForSectionIndexTitle:atIndex:"></a>
+	<h3 class="subsubtitle method-title">sectionForSectionIndexTitle:atIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the section number for the given section index title and index.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSInteger)sectionForSectionIndexTitle:(NSString *)<em>title</em> atIndex:(NSInteger)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>title</em></dt>
+			<dd><p>The index title of a section.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sectionIndex</em></dt>
+			<dd><p>The index of a section.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The section number for the given section index title and index.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the section number for the given section index title and index.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sectionIndexTitleForSectionName:" title="sectionIndexTitleForSectionName:"></a>
+	<h3 class="subsubtitle method-title">sectionIndexTitleForSectionName:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the default section index title for a given section name.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)sectionIndexTitleForSectionName:(NSString *)<em>sectionName</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sectionName</em></dt>
+			<dd><p>The name of a section.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The default section index title corresponding to the section with the given name.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns the default section index title for a given section name.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MRFetchedResultsController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2015 Héctor Marqués. All rights reserved. (Last updated: 2015-06-13)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
