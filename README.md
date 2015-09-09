@@ -9,6 +9,22 @@ MRFetchedResultsController
 
 Its purpose is to provide an alternative that makes it possible to extend `NSFetchedResultsController` functionallity without having to deal with private APIs.
 
+Installation
+------------
+
+### CocoaPods
+
+**MRFetchedResultsController** is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your *Podfile*:
+
+```ruby
+pod "MRFetchedResultsController"
+```
+
+### Manually
+
+Copy *MRFetchedResultsController* directory into your project.
+
 Usage
 -----
 
