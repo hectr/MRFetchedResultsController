@@ -9,6 +9,8 @@ MRFetchedResultsController
 
 Its purpose is to provide an alternative that makes it possible to extend `NSFetchedResultsController` functionallity without having to deal with private APIs.
 
+In apps ported to Mac OS X using [Chameleon](https://github.com/BigZaphod/Chameleon), **MRFetchedResultsController** addresses the lack of an implementation of `NSFetchedResultsController` for the platform by providing an alternative that can be used in both iOS and Mac versions of the apps.
+
 Installation
 ------------
 
@@ -63,4 +65,4 @@ Besides the new delegate method that provides support for `- [UICollectionView p
 License
 -------
 
-`MRFetchedResultsController` is available under the MIT license. See the *LICENSE* file for more info.
+**MRFetchedResultsController** is available under the MIT license. See the *LICENSE* file for more info.
