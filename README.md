@@ -66,3 +66,8 @@ License
 -------
 
 **MRFetchedResultsController** is available under the MIT license. See the *LICENSE* file for more info.
+
+Alternatives
+============
+
+- <https://github.com/konstantinpavlikhin/KSPFetchedResultsController>
