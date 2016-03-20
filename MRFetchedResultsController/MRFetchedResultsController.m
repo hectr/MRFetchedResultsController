@@ -313,6 +313,9 @@ static NSCache *__cache = nil;
     }
     NSManagedObjectContext *const managedObjectContext = self.managedObjectContext;
     NSFetchRequest *const fetchRequest = self.fetchRequest;
+    NSString *const entityName = fetchRequest.entityName;
+    fetchRequest.entity = [NSEntityDescription entityForName:entityName
+                                      inManagedObjectContext:managedObjectContext];
     NSString *const sectionNameKeyPath = self.sectionNameKeyPath;
     BOOL const success = [self mr_performRequest:fetchRequest
                                        inContext:managedObjectContext
