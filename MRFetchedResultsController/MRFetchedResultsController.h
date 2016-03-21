@@ -22,8 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class NSManagedObjectContext, NSFetchRequest;
-@protocol MRFetchedResultsControllerDelegate, MRFetchedResultsSectionChangeInfo, MRFetchedResultsObjectChangeInfo;
+@class NSManagedObjectContext, NSManagedObject, NSFetchRequest;
+@protocol MRFetchedResultsControllerDelegate, MRFetchedResultsSectionInfo, MRFetchedResultsSectionChangeInfo, MRFetchedResultsObjectChangeInfo;
 
 
 /**
@@ -85,7 +85,7 @@
 /**
  Returns the results of the fetch.
  */
-@property (nonatomic, strong, readonly) NSArray *fetchedObjects;
+@property (nonatomic, strong, readonly) NSArray<__kindof NSManagedObject *> *fetchedObjects;
 
 /**
  Returns the fetched object at the given index path.
@@ -114,12 +114,12 @@
 /**
  Returns the array of section index titles.
  */
-@property (nonatomic, strong, readonly) NSArray *sectionIndexTitles;
+@property (nonatomic, strong, readonly) NSArray<NSString *> *sectionIndexTitles;
 
 /**
  Returns an array of objects that implement the `MRFetchedResultsSectionInfo` protocol.
  */
-@property (nonatomic, strong, readonly) NSArray *sections;
+@property (nonatomic, strong, readonly) NSArray<id<MRFetchedResultsSectionInfo>> *sections;
 
 /**
  Returns the section number for the given section index title and index.
@@ -181,7 +181,7 @@
 /**
  Array of objects in the section.
  */
-@property (nonatomic, readonly) NSArray *objects;
+@property (nonatomic, readonly) NSArray<__kindof NSManagedObject *> *objects;
 
 @end
 
@@ -216,7 +216,7 @@ typedef NS_ENUM(NSUInteger, MRFetchedResultsChangeType) {
 
 // Notifies the delegate of all changes in sections and objects. See `MRFetchedResultsSectionChangeInfo` and `MRFetchedResultsObjectChangeInfo`.
 @optional
-- (void)controller:(MRFetchedResultsController *)controller didChangeSections:(NSArray *)sectionChanges andObjects:(NSArray *)objectChanges;
+- (void)controller:(MRFetchedResultsController *)controller didChangeSections:(NSArray<id<MRFetchedResultsSectionChangeInfo>> *)sectionChanges andObjects:(NSArray<id<MRFetchedResultsObjectChangeInfo>> *)objectChanges;
 
 // Notifies the delegate that all section and object changes have been sent.
 @optional

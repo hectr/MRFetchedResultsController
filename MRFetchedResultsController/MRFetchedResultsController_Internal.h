@@ -22,6 +22,7 @@
 
 #import "MRFetchedResultsController.h"
 
+@class NSManagedObjectID;
 
 /**
  Extension that exposes non-public methods of `MRFetchedResultsController` instances.
@@ -46,12 +47,12 @@
 /**
  Section info objects by name.
  */
-@property (nonatomic, strong) NSDictionary *sectionsByName;
+@property (nonatomic, strong) NSDictionary<NSString *, id> *sectionsByName;
 
 /**
  Indexes of the sections in the section index.
  */
-@property (nonatomic, strong) NSArray *sectionIndexTitlesSections;
+@property (nonatomic, strong) NSArray<NSNumber *> *sectionIndexTitlesSections;
 
 /**
  Set when the `delegate` responds to `controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:`.
@@ -91,17 +92,17 @@
 /**
  Property used for storing inserted objects until they are applied to the results set.
  */
-@property (nonatomic, strong) NSMutableSet *insertedObjects;
+@property (nonatomic, strong) NSMutableSet<__kindof NSManagedObject *> *insertedObjects;
 
 /**
  Property used for storing updated objects until they are applied to the results set.
  */
-@property (nonatomic, strong) NSMutableSet *updatedObjects;
+@property (nonatomic, strong) NSMutableSet<__kindof NSManagedObject *> *updatedObjects;
 
 /**
  Property used for storing deleted objects until they are applied to the results set.
  */
-@property (nonatomic, strong) NSMutableSet *deletedObjects;
+@property (nonatomic, strong) NSMutableSet<__kindof NSManagedObject *> *deletedObjects;
 
 /** 
  Updates the receiver's `notify*` delegate flags for the given delegate object.
@@ -134,7 +135,7 @@
  @param context The context used for fetching the objects.
  */
 - (void)mr_buildSectionsWithKeyPath:(NSString *)keyPath
-                         andObjects:(NSArray *)objects
+                         andObjects:(NSArray<__kindof NSManagedObject *> *)objects
                           inContext:(NSManagedObjectContext *)context;
 
 /**
@@ -166,7 +167,7 @@
  
  See `cache` and `cacheName` properties.
  */
-- (void)mr_cacheResults:(NSArray *)fetchedObjects;
+- (void)mr_cacheResults:(NSArray<__kindof NSManagedObject *> *)fetchedObjects;
 
 /**
  Returns a predicate that filters managed objects whose entity name is not equal to the `entityName` of the parameter.
@@ -181,7 +182,7 @@
  
  Depending on the value of `changesAppliedOnSave`, the changes are applied immediately or stored in `insertedObjects`, `updatedObjects` and `deletedObjects` properties.
  */
-- (void)mr_updateContent:(NSDictionary *)userInfo;
+- (void)mr_updateContent:(NSDictionary<NSString *, __kindof NSManagedObject *> *)userInfo;
 
 /**
  Applies the changes represented by the given parameters in the results set.
@@ -190,9 +191,9 @@
  @parameter insertedObjects Set of objects that should be inserted into the results set.
  @parameter updatedObjects Set of objects from the results set that have been updated.
  */
-- (void)mr_applyChangesWithDeletedObjects:(NSSet *)deletedObjects
-                          insertedObjects:(NSSet *)insertedObjects
-                           updatedObjects:(NSSet *)updatedObjects;
+- (void)mr_applyChangesWithDeletedObjects:(NSSet<__kindof NSManagedObject *> *)deletedObjects
+                          insertedObjects:(NSSet<__kindof NSManagedObject *> *)insertedObjects
+                           updatedObjects:(NSSet<__kindof NSManagedObject *> *)updatedObjects;
 
 /**
  Builds a section change info with the given parameters.
@@ -225,11 +226,11 @@
  @param newMatches The fetched objects inserted into the results set.
  @param goneMatches The fetched objects deleted from the results set.
  */
-- (void)mr_notifyChangesInSections:(NSArray *)oldSections
-                        indexPaths:(NSMutableDictionary *)oldIndexPaths
-                           objects:(NSSet *)oldMatches
-                     andNewObjects:(NSSet *)newMatches
-                    andGoneObjects:(NSMutableSet *)goneMatches;
+- (void)mr_notifyChangesInSections:(NSArray<id<MRFetchedResultsSectionInfo>> *)oldSections
+                        indexPaths:(NSMutableDictionary<NSManagedObjectID *, NSIndexPath *> *)oldIndexPaths
+                           objects:(NSSet<__kindof NSManagedObject *> *)oldMatches
+                     andNewObjects:(NSSet<__kindof NSManagedObject *> *)newMatches
+                    andGoneObjects:(NSMutableSet<__kindof NSManagedObject *> *)goneMatches;
 
 /**
  Returns the notification that must be used for monitoring changes in the results set.

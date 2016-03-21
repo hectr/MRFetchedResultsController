@@ -21,6 +21,8 @@
 // THE SOFTWARE.
 
 #import "MRFetchedResultsController.h"
+#import "MRFetchedResultsController_Internal.h"
+
 #import <CoreData/CoreData.h>
 
 
