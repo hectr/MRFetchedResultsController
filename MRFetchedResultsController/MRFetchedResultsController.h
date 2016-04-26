@@ -146,6 +146,13 @@
 @property (nonatomic, assign) BOOL applyFetchedObjectsChanges;
 
 /**
+ If set, changes are notified asynchronously in it. Otherwise changes are notified synchronously in the current thread.
+ 
+ Default value is NULL.
+ */
+@property (nonatomic, assign) dispatch_queue_t notifyChangesQueue;
+
+/**
  If set, the receiver listens to `NSManagedObjectContextDidSaveNotification`. Otherwise it listens to `NSManagedObjectContextObjectsDidChangeNotification`.
  
  Default value is NO.

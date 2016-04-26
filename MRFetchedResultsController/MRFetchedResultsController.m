@@ -815,13 +815,23 @@ static NSCache *__cache = nil;
     self.numberOfObjects = objectsArray.count;
     self.fetchedObjects = objectsArray;
     // notify changes
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_queue_t const queue = self.notifyChangesQueue;
+    if (queue) {
+        __weak typeof(self) const welf = self;
+        dispatch_async(queue, ^{
+            [welf mr_notifyChangesInSections:oldSections
+                                  indexPaths:oldIndexPaths
+                                     objects:oldMatches
+                               andNewObjects:newMatches
+                              andGoneObjects:goneMatches];
+        });
+    } else {
         [self mr_notifyChangesInSections:oldSections
                               indexPaths:oldIndexPaths
                                  objects:oldMatches
                            andNewObjects:newMatches
                           andGoneObjects:goneMatches];
-    });
+    }
 }
 
 - (id<MRFetchedResultsSectionChangeInfo>)mr_changeInfoWithType:(MRFetchedResultsChangeType const)type
