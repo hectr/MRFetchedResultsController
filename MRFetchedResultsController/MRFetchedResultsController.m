@@ -1053,7 +1053,7 @@ static NSCache *__cache = nil;
     if (self.observer == nil) {
         NSManagedObjectContext *const moc = self.managedObjectContext;
         NSNotificationCenter *const defaultCenter = NSNotificationCenter.defaultCenter;
-        __weak typeof(self) const weakSelf = self;
+        __weak typeof(self) const welf = self;
         NSString *const name = self.mr_managedObjectContextNotificationName;
         self.observer =
         [defaultCenter addObserverForName:name
@@ -1061,7 +1061,7 @@ static NSCache *__cache = nil;
                                     queue:nil
                                usingBlock:^(NSNotification *const note) {
                                    NSDictionary *const userInfo = note.userInfo;
-                                   [weakSelf mr_updateContent:userInfo];
+                                   [welf mr_updateContent:userInfo];
                                }];
     }
 }
