@@ -53,13 +53,16 @@ When using the fetched results controller with `UICollectionView` you can handle
 Extras
 ------
 
-Besides the new delegate method that provides support for `- [UICollectionView performBatchUpdates:completion:]`; *MRFetchedResultsController.h* contains 2 extra properties -not present in *NSFetchedResultsController.h*- for fine-tuning the behaviour of the fetched results controller's change tracking:
+Besides the new delegate method that provides support for `- [UICollectionView performBatchUpdates:completion:]`; *MRFetchedResultsController.h* contains 3 extra properties -not present in *NSFetchedResultsController.h*- for fine-tuning the behaviour of the fetched results controller's change tracking:
 
 ```objc
 // Changes in the context are not applied to the fetchedObjects array until applyFetchedObjectsChanges is set.
 @property (nonatomic, assign) BOOL applyFetchedObjectsChanges;
 // If set, changes in the context are not applied until the context is successfully saved.
 @property (nonatomic, assign) BOOL changesAppliedOnSave;
+// If set, it is used for notifying changes asynchronously.
+@property (nonatomic, assign) dispatch_queue_t notifyChangesQueue;
+
 ```
 
 License
