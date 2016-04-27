@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MRFetchedResultsController"
-  s.version      = "0.1.3"
+  s.version      = "0.2.0"
   s.summary      = "Extensible drop-in replacement for NSFetchedResultsController."
 
   s.description  = <<-DESC
