@@ -71,3 +71,5 @@ Alternatives
 ============
 
 - <https://github.com/konstantinpavlikhin/KSPFetchedResultsController>
+- <https://github.com/matteorattotti/MRTFetchedResultsController>
+- <https://github.com/indragiek/SNRFetchedResultsController>
