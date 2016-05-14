@@ -192,12 +192,7 @@
 
 @end
 
-
-/**
- `MRFetchedResultsController` instances use methods in this protocol for notifying changes in fetch results to their delegates.
- */
-@protocol MRFetchedResultsControllerDelegate <NSObject>
-
+/** Specify types of change. */
 typedef NS_ENUM(NSUInteger, MRFetchedResultsChangeType) {
     /** Specifies that an object was inserted. */
     MRFetchedResultsChangeInsert = 1,
@@ -208,6 +203,11 @@ typedef NS_ENUM(NSUInteger, MRFetchedResultsChangeType) {
     /** Specifies that an object was updated. */
     MRFetchedResultsChangeUpdate = 4
 };
+
+/**
+ `MRFetchedResultsController` instances use methods in this protocol for notifying changes in fetch results to their delegates.
+ */
+@protocol MRFetchedResultsControllerDelegate <NSObject>
 
 // Notifies the delegate that a fetched object has been changed.
 @optional
